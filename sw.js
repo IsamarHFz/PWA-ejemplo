@@ -43,7 +43,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request).then(response => {
             return response || fetch(event.request).catch(
-                () => caches.match.match("offline.html"));
+                () => caches.match.match(`${BASE_PATH}offline.html`));
         })
     );
 });
