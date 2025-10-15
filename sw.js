@@ -3,7 +3,7 @@
 
 // 1. Nombre del caché y archivos a cachear
 const CACHE_NAME = "mi-pwa-cache-v1";
-const BASE_PATH = "PWA-ejemplo/";
+const BASE_PATH = "/PWA-ejemplo/";
 const urlsTocache = [
     `${BASE_PATH}index.html`,
     `${BASE_PATH}manifest.json`,
@@ -20,6 +20,7 @@ self.addEventListener("install", event => {
         caches.open(CACHE_NAME).then(cache => cache.addAll(urlsTocache))
     );
 });
+
 
 // 3. ACTIVATE ->  este evento se ejecuta al activarse y debe limpiar caches viejas 
 // Se dispara cuando el service worker se activa (está en ejecución)
