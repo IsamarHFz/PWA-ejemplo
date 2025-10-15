@@ -17,7 +17,7 @@ const urlsTocache = [
 // self es la instancia que escucha los eventos del navegador
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(caches => cache.addAll(urlsTocache))
+        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsTocache))
     );
 });
 
