@@ -3,23 +3,22 @@
 
 // 1. Nombre del caché y archivos a cachear
 const CACHE_NAME = "mi-pwa-cache-v1";
-const BASE_PATH = "/PWA-ejemplo/";
 const urlsTocache = [
-    `${BASE_PATH}index.html`,
-    `${BASE_PATH}manifest.json`,
-    `${BASE_PATH}offline.html`,
-    `${BASE_PATH}icons/icon-192x192.png`,
-    `${BASE_PATH}icons/icon-512x512.png`,
+  "./index.html",
+  "./manifest.json",
+  "./offline.html",
+  "./icons/icon-192x192.png",
+  "./icons/icon-512x512.png"
 ];
 
 // 2. INSTALL -> el evento que se ejecuta al instalar el sw
 // Se dispara la primera vez que se registra el service worker, se hace un trigger
 // self es la instancia que escucha los eventos del navegador
 self.addEventListener("install", event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsTocache))
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsTocache))
     );
 });
+
 
 
 // 3. ACTIVATE ->  este evento se ejecuta al activarse y debe limpiar caches viejas 
