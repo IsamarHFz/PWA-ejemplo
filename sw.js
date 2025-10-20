@@ -7,8 +7,8 @@ const urlsTocache = [
   "./index.html",
   "./manifest.json",
   "./offline.html",
-  "./icons/icon-192x192.png",
-  "./icons/icon-512x512.png"
+  "./icons/favicon/icon-192x192.png",
+  "./icons/favicon/icon-512x512.png"
 ];
 
 // 2. INSTALL -> el evento que se ejecuta al instalar el sw
@@ -43,7 +43,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request).then(response => {
             return response || fetch(event.request).catch(
-                () => caches.match(`${BASE_PATH}offline.html`));
+                () => caches.match("./offline.html"));
         })
     );
 });
